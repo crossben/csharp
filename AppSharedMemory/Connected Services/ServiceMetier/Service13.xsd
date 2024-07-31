@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MetierSharedMemory.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MetierSharedMemory.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfEncadreur">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Encadreur" nillable="true" type="tns:Encadreur" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEncadreur" nillable="true" type="tns:ArrayOfEncadreur" />
+  <xs:complexType name="Encadreur">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Personne">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Specialite" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Encadreur" nillable="true" type="tns:Encadreur" />
+  <xs:complexType name="Personne">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdPersonne" type="xs:int" />
+      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Prenom" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Personne" nillable="true" type="tns:Personne" />
+</xs:schema>
